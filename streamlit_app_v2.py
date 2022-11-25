@@ -3,6 +3,12 @@
 import streamlit as st
 from peewee import *
 
+
+# Connect to a Postgres database using peewee
+sup_db = PostgresqlDatabase('my_app', user='su_admin', password='pgsup07',
+                           host="tcp-mo5.mogenius.io", port=43829)
+
+
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
