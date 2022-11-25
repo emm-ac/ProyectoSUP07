@@ -5,17 +5,28 @@ from peewee import *
 
 
 # Connect to a Postgres database using peewee
-sup_db = PostgresqlDatabase('my_app', user='su_admin', password='pgsup07',
-                           host="tcp-mo5.mogenius.io", port=43829)
+#sup_db = PostgresqlDatabase('my_app', user='su_admin', password='pgsup07',
+#                           host="tcp-mo5.mogenius.io", port=43829)
 
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
-def init_connection():
-    return psycopg2.connect(**st.secrets["postgres"])
+#@st.experimental_singleton
+#def init_connection():
+#    return psycopg2.connect(**st.secrets["postgres"])
+#
+#conn = init_connection()
 
-conn = init_connection()
+
+
+# create database connection
+@st.cache(allow_output_mutation=True)
+def get_database_connection():
+    conn = sqlite3.connect('sup_db')
+    c = conn.cursor()   
+    return c
+
+
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
