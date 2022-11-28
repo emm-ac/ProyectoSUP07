@@ -5,7 +5,7 @@ import psycopg2
 
 
 
-row1_1, row1_2 = st.beta_columns((3,2))
+row1_1, row1_2 = st.columns((3,2))
 with row1_1:
     st.title('Dashboard Proyecto SUP07')
 
