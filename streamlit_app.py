@@ -3,6 +3,15 @@
 import streamlit as st
 import psycopg2
 
+
+
+row1_1, row1_2 = st.beta_columns((3,2))
+with row1_1:
+    st.title('Dashboard Proyecto SUP07')
+
+with row1_2:
+    st.text(time.strftime("%Y-%m-%d %H:%M"))
+    
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
