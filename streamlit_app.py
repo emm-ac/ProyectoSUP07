@@ -24,3 +24,11 @@ rows = run_query("SELECT * from Usuario;")
 # Print results.
 for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
+    
+    
+row1_1, row1_2 = st.beta_columns((3,2))
+with row1_1:
+    st.title('Dashboard Proyecto SUP07')
+
+with row1_2:
+    st.text(time.strftime("%Y-%m-%d %H:%M"))
