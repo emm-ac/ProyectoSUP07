@@ -8,7 +8,7 @@ row1_1, row1_2 = st.columns((3,2))
 with row1_1:
     st.title('Dashboard Proyecto SUP07')
 
-with row1_2:
+with row2_1:
     st.text('Indicadores de la cohorte')
     
 # Initialize connection.
