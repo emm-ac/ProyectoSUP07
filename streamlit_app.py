@@ -4,13 +4,12 @@ import streamlit as st
 import psycopg2
 
 
-
 row1_1, row1_2 = st.columns((3,2))
 with row1_1:
     st.title('Dashboard Proyecto SUP07')
 
 with row1_2:
-    st.text(time.strftime("%Y-%m-%d %H:%M"))
+    st.text('Indicadores de la cohorte')
     
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
