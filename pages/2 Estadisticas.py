@@ -20,19 +20,37 @@ def init_connection():
 
 conn = init_connection()
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
 
-rows = run_query("SELECT * FROM Alumnos")                 
+## Perform query.
+## Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+#@st.experimental_memo(ttl=600)
+#def run_query(query):
+#    with conn.cursor() as cur:
+#        cur.execute(query)
+#        return cur.fetchall()
+#
+#rows = run_query("SELECT * FROM Alumnos")                 
+#
+## Print results.
+#for row in rows:
+#    st.write(f"{row[0]} has a :{row[1]}:")
+    
+
+
+
+@st.experimental_memo(ttl=300)
+def run_query2(query):
+    cursor = conn.cursor()
+    cursor.execute(query)
+    return cursor.fetchall()
+
+
+sql = run_query2("SELECT * FROM Alumnos")                 
 
 # Print results.
-for row in rows:
+for row in sql:
     st.write(f"{row[0]} has a :{row[1]}:")
+  
 
 
 
