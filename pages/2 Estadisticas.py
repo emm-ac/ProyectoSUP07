@@ -22,7 +22,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * FROM Table")                 
+rows = run_query("SELECT * FROM Alumnos")                 
 
 # Print results.
 for row in rows:
