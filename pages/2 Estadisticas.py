@@ -22,7 +22,13 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("CREATE TABLE Prueba")
+rows = run_query("CREATE TABLE Alumnos (
+	IDAlumno				SERIAL PRIMARY KEY,
+	Nombre_y_apellido		VARCHAR(50) NOT NULL,
+	Carrera					VARCHAR(50) NOT NULL,
+	Cohorte					VARCHAR(10) NOT NULL,
+	Mail					VARCHAR(70)
+);")
                  
 
 # Print results.
