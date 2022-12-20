@@ -1,5 +1,6 @@
 import streamlit as st
 import psycopg2
+import pyodbc
 
 st.set_page_config(page_title='Estadísticas', 
                    page_icon='📊', 
@@ -14,10 +15,11 @@ def connect_db():
    try:
       con = pyodbc.connect(
       driver = 'ODBC DRIVER 17 FOR SQL SERVER',
-      Server = 'localhost',
-      DATABASE='test_db',
-      UID = 'test',
-      PWD ='test',
+      Server = 'tcp-mo5.mogenius.io',
+      Port = 57566
+      DATABASE='sup_db',
+      UID = 'su_admin',
+      PWD ='pgsup07',
       )
       cursor = con.cursor()
       df = pd.read_sql_query('select * from test_db',con)
