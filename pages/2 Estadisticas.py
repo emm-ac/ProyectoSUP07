@@ -45,7 +45,7 @@ def run_query2(query):
     return cursor.fetchall()
 
 
-sql = run_query2("SELECT * FROM Alumnos")                 
+sql = run_query2('''SELECT * FROM Alumnos''')                 
 
 # Print results.
 for row in sql:
