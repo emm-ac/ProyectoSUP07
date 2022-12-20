@@ -22,7 +22,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("CREATE TABLE 'Prueba';")
+rows = run_query("CREATE TABLE Prueba;")
                  
 
 # Print results.
