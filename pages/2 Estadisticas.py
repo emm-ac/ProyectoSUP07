@@ -1,7 +1,7 @@
 import streamlit as st
 import psycopg2
 import sqlite3 as sql
-import os 
+import pandas as pd
 
 st.set_page_config(page_title='Estadísticas', 
                    page_icon='📊', 
@@ -11,8 +11,9 @@ st.set_page_config(page_title='Estadísticas',
 
 
 st.title('Estadísticas TA Tools')
-st.text('Indicadores de tu grupo')
+st.header('Indicadores de tu grupo')
     
+
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -23,41 +24,33 @@ def init_connection():
 conn = init_connection()
 
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+
 @st.experimental_memo(ttl=600)
 def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-rows = run_query("SELECT * FROM Alumnos")                 
-
-# Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
-    
-
-
-
-@st.experimental_memo(ttl=300)
-def run_query2(query):
     cursor = conn.cursor()
     cursor.execute(query)
     return cursor.fetchall()
 
 
-sql = run_query2('''SELECT * FROM Alumnos''')                 
-
-# Print results.
-for row in sql:
-    st.write(f"{row[0]} has a :{row[1]}:")
-  
-
-
-
 #- edad promedio de alumnos, c la min y max
+sql1 = run_query("SELECT ROUND(AVG(edad),0) FROM Alumnos")
+st.subheader('Edades de los alumnos')             
+st.markdown(f'La edad promedio de los alumnos es: {sql1[0][0]}')
+sql11 = run_query("SELECT MIN(edad) , MAX(edad) FROM Alumnos")  
+st.markdown(f'Siendo {sql11[0][0]} la menor y {sql11[0][1]} la mayor')
+
+
+
 #- cant de alumnos por nacionalidad (barras)
+st.subheader('Nacionalidad de los alumnos')
+sql2 = pd.DataFrame(run_query("SELECT país,COUNT(IDAlumno) FROM Alumnos GROUP BY país"))
+st.dataframe(sql2)
+st.bar_chart(data=sql2, x=None, y=None, width=600, height=200, use_container_width=False)
+
+
+
+
+
 #- dispositivo q ussn para conectarse al sup (ver porcentaje de cada c resp al total)
 #- cant de alumnos q poseen tanto mic como cam
 #- metrica con lo que preferirían hacer en el sup
