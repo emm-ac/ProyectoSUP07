@@ -1,4 +1,6 @@
 import streamlit as st
+import sqlite3 as sql
+import os 
 
 st.set_page_config(page_title='Juegos', 
                    page_icon='🕹️', 

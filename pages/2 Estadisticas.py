@@ -1,5 +1,7 @@
 import streamlit as st
 import psycopg2
+import sqlite3 as sql
+import os 
 
 st.set_page_config(page_title='Estadísticas', 
                    page_icon='📊', 
