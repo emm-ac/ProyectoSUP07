@@ -15,5 +15,6 @@ primary key (IDAlumno)
 insert into Alumnos values(0,'Emmanuel Corral',35,'Argentina','DS',05,'Notebook','Ambos','Juegos');
 insert into Alumnos values(1,'Melina Griffo',30,'Argentina','DS',05,'Notebook','Mic','Charlar');
 insert into Alumnos values(2,'Federico Olivieri',29,'Argentina','DS',03,'Notebook','Ambos','Dar órdenes');
+insert into Alumnos values(2,'Emmanuel Jimmy',28,'Uruguay','DS',05,'Celular','Cam','Juegos');
 
 select * from alumnos order by IDAlumno;
