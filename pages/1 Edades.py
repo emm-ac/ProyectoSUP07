@@ -42,8 +42,6 @@ col3.metric(label="Mayor", value=int(sql11[0][1]), delta=None)
 st.subheader('Edades de los alumnos')
 sql111 = pd.DataFrame(run_query("SELECT Nombre_apellido, edad FROM Alumnos"))
 sql111.columns = ['Nombre','Edad']
-sql111.style.hide_index()
-
 
 # CSS to inject contained in a string
 hide_table_row_index = """
