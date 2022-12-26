@@ -10,6 +10,17 @@ st.set_page_config(page_title='TA Tools - Preferencias',
                    menu_items=None)
 
 
+# CSS to inject contained in a string
+hide_table_row_index = """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
+# Inject CSS with Markdown
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+
 st.header('Indicadores de tu grupo')
     
 
@@ -31,8 +42,10 @@ def run_query(query):
 
 #- metrica con lo que preferirían hacer en el sup
 st.subheader('Temas más elegidos para el SUP')
-sql5 = (run_query("SELECT Actividad_preferida, COUNT(Actividad_preferida) FROM Alumnos GROUP BY Actividad_preferida"))
-st.markdown(f'Los alumnos prefieren:')
-st.dataframe(data=sql5, use_container_width=True)
-sql55 = pd.DataFrame(run_query("SELECT Actividad_preferida FROM Alumnos"))
-st.bar_chart(data=sql55, use_container_width=True)
+sql5 = pd.DataFrame(run_query("SELECT Actividad_preferida, COUNT(Actividad_preferida) FROM Alumnos GROUP BY Actividad_preferida"))
+sql5.columns = ['Actividad','Cantidad']
+st.table(sql5)
+
+
+st.subheader(f'La distribución de preferencias es la siguiente:')
+st.bar_chart(data=sql5, x='Actividad', y='Cantidad', use_container_width=True)

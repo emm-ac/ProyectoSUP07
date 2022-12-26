@@ -48,12 +48,6 @@ st.table(sql3)
 
 
 st.subheader(f'La distribución de dispositivos es la siguiente:')
-#sql33 = pd.DataFrame(run_query("SELECT Dispositivo_usado, COUNT(Dispositivo_usado) FROM Alumnos GROUP BY Dispositivo_usado"))
-#st.write(sql33)
-
-#sql33.columns = ['Dispositivo','Cantidad']
-#st.table(sql33)
-
-
-
-#st.bar_chart(data=sql33, x='Dispositivo', y='Total', use_container_width=True)
+sql33 = pd.DataFrame(run_query("SELECT Dispositivo_usado, COUNT(Dispositivo_usado) FROM Alumnos GROUP BY Dispositivo_usado"))
+sql33.columns = ['Dispositivo','Cantidad']
+st.bar_chart(data=sql33, x='Dispositivo', y='Cantidad', use_container_width=True)
