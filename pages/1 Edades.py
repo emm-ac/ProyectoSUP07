@@ -31,7 +31,11 @@ def run_query(query):
 
 #- edad promedio de alumnos, c la min y max
 st.subheader('Edades de los alumnos') 
-sql1 = run_query("SELECT ROUND(AVG(edad),0) FROM Alumnos")            
-st.markdown(f'La edad promedio de los alumnos es: {sql1[0][0]}')
+sql1 = run_query("SELECT ROUND(AVG(edad),0) FROM Alumnos")
 sql11 = run_query("SELECT MIN(edad) , MAX(edad) FROM Alumnos")  
-st.markdown(f'Siendo {sql11[0][0]} la menor y {sql11[0][1]} la mayor')
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric(label="Menor", value=int(sql11[0][0]), delta=None)
+col2.metric(label="Edad promedio", value=int(sql1[0][0]), delta=None)
+col3.metric(label="Mayor", value=int(sql11[0][1]), delta=None)

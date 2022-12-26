@@ -33,5 +33,7 @@ def run_query(query):
 st.subheader('Nacionalidades')
 st.markdown(f'La distribución de nacionalidades es la siguiente:')
 sql2 = pd.DataFrame(run_query("SELECT COUNT(IDAlumno) FROM Alumnos GROUP BY país"))
+st.markdown(sql2)
+#sql2 = sql2(columns=('País','Cantidad'))
 st.dataframe(data=sql2, use_container_width=True)
 st.bar_chart(data=sql2, use_container_width=True)
