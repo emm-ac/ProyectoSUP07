@@ -6,6 +6,15 @@ st.set_page_config(page_title='Inicio',
                    initial_sidebar_state="collapsed", 
                    menu_items=None)
 
+
+#body{
+#    font-family: 'Poppins', sans-serif;
+#    background-color: #b9b9b9;
+#    background-image: radial-gradient( ellipse farthest-corner at 40px 40px , #3f8c5e, #3f8c5e 50%, #b9b9b9 50%);
+#    background-size:  15px 30px;
+#}
+
+
 st.title('TA Tools :rocket:')
 
 st.header('Esta app proporciona herramientas e información útil para TAs.')
