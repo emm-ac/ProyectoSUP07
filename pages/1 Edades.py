@@ -41,8 +41,8 @@ def run_query(query):
 
 
 #- edad promedio de alumnos, c la min y max
-sql1 = run_query("SELECT ROUND(AVG(edad),0) FROM Alumnos")
-sql11 = run_query("SELECT MIN(edad) , MAX(edad) FROM Alumnos")  
+sql1 = run_query("SELECT ROUND(AVG(edad),0) FROM [Alumno]")
+sql11 = run_query("SELECT MIN(edad) , MAX(edad) FROM Alumno")  
 col1, col2, col3 = st.columns(3)
 col1.metric(label="Menor", value=int(sql11[0][0]), delta=None)
 col2.metric(label="Edad promedio", value=int(sql1[0][0]), delta=None)
@@ -50,6 +50,6 @@ col3.metric(label="Mayor", value=int(sql11[0][1]), delta=None)
 
 
 st.subheader('Edades de los alumnos')
-sql111 = pd.DataFrame(run_query("SELECT Nombre_apellido, edad FROM Alumnos"))
-sql111.columns = ['Nombre','Edad']
+sql111 = pd.DataFrame(run_query("SELECT nombre,apellido,edad FROM Alumno"))
+sql111.columns = ['Nombre','Apellido','Edad']
 st.table(sql111)

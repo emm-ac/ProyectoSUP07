@@ -1,22 +1,28 @@
-drop table Alumnos;
-create table Alumnos(
-IDAlumno	int not null,
-Nombre_apellido varchar(100),
-Edad int not null,
-País varchar(50) not null,
-Carrera varchar(5) not null,
-Cohorte	int not null,
-Dispositivo_usado varchar(100),
-Cam_Mic varchar(50),
-Actividad_preferida varchar(100),
-primary key (IDAlumno)
-);
+insert into "Alumno" values(0,'Emmanuel','Corral',35,01,True,True,'Argentina','Juegos');
+insert into "Alumno" values(1,'Melina','Griffo',28,01,False,True,'Argentina','Charlar');
+insert into "Alumno" values(2,'Ronal','Cabrera',27,01,True,False,'Argentina','Juegos');
+insert into "Alumno" values(3,'Emmanuel','Fernandez',29,01,False,False,'Uruguay','Código');
+insert into "Alumno" values(4,'Luciano','Asencio',31,01,True,False,'Chile','Juegos');
+insert into "Alumno" values(5,'Matias','Martínez',26,01,True,True,'Chile','Charlar');
+insert into "Alumno" values(6,'Valentín','Fogliatti',37,01,False,True,'Argentina','Juegos');
+insert into "Alumno" values(7,'Leonel','Balleis',30,01,False,False,'Argentina','Charlar');
+insert into "Alumno" values(8,'Maciela','Ortiz',31,01,True,False,'Argentina','Código');
+insert into "Alumno" values(9,'Julio','Postigo',27,01,False,True,'Uruguay','Juegos');
+insert into "Alumno" values(10,'Matías','Saez',25,01,False,True,'Chile','Dudas Henry');
+insert into "Alumno" values(11,'Nicolás','Mulet',26,01,True,False,'Chile','Juegos');
 
-insert into Alumnos values(0,'Emmanuel Corral',35,'Argentina','DS',05,'Notebook','Ambos','Juegos');
-insert into Alumnos values(1,'Melina Griffo',30,'Argentina','DS',05,'Notebook','Mic','Charlar');
-insert into Alumnos values(2,'Federico Olivieri',29,'Argentina','DS',03,'Notebook','Ambos','Dar órdenes');
-insert into Alumnos values(3,'Emmanuel Jimmy',28,'Uruguay','DS',05,'Celular','Cam','Juegos');
-insert into Alumnos values(4,'Lucho Asuncio',30,'Chile','DS',05,'Celular','Mic','Juegos');
-insert into Alumnos values(5,'Benja Pastor',27,'Chile','DS',03,'Notebook','Ambos','Charlar');
+delete from "Alumno";
+
+insert into "Ta" values(01,'Fede','Olivieri','fede.olivieri@lagorra.com','8811225');
+
+insert into "Sup" values(01,07,05,01,null,'Data');
+
+select * from "Alumno";
+select * from "Sup";
+select * from "Ta";
 
 select * from alumnos order by IDAlumno;
+
+SELECT ROUND(AVG(edad),0) FROM "Alumno";
+
+SELECT ROUND(AVG(edad),0) FROM Alumno;
