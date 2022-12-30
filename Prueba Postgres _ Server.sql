@@ -21,8 +21,12 @@ select * from "Alumno";
 select * from "Sup";
 select * from "Ta";
 
-select * from alumnos order by IDAlumno;
-
-SELECT ROUND(AVG(edad),0) FROM "Alumno";
-
 SELECT ROUND(AVG(edad),0) FROM Alumno;
+
+SELECT nombre,apellido,edad FROM alumno;
+
+SELECT ROUND(AVG(edad),0) FROM alumno;
+
+ALTER TABLE "Alumno" RENAME TO "alumno";
+ALTER TABLE "Sup" RENAME TO "sup";
+ALTER TABLE "Ta" RENAME TO "ta";

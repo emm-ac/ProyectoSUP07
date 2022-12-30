@@ -42,7 +42,7 @@ def run_query(query):
 
 #- cant de alumnos por nacionalidad (barras)
 st.subheader('Nacionalidades')
-sql2 = pd.DataFrame(run_query("SELECT País, COUNT(IDAlumno) FROM Alumnos GROUP BY País"))
+sql2 = pd.DataFrame(run_query("SELECT pais, COUNT(ID_alumno) FROM alumno GROUP BY pais"))
 sql2.columns = ['País','Cantidad']
 st.table(sql2)
 
