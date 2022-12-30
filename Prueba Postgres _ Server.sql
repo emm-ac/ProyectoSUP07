@@ -17,9 +17,9 @@ insert into "Ta" values(01,'Fede','Olivieri','fede.olivieri@lagorra.com','881122
 
 insert into "Sup" values(01,07,05,01,null,'Data');
 
-select * from "Alumno";
-select * from "Sup";
-select * from "Ta";
+select * from alumno;
+select * from sup;
+select * from ta;
 
 SELECT ROUND(AVG(edad),0) FROM Alumno;
 
@@ -30,3 +30,5 @@ SELECT ROUND(AVG(edad),0) FROM alumno;
 ALTER TABLE "Alumno" RENAME TO "alumno";
 ALTER TABLE "Sup" RENAME TO "sup";
 ALTER TABLE "Ta" RENAME TO "ta";
+
+SELECT nombre,apellido,dispositivo,mic_y_cam FROM alumno;

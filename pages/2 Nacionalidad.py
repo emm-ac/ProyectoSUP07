@@ -52,7 +52,7 @@ def run_query(query):
 
 #- cant de alumnos por nacionalidad (barras)
 st.subheader('Nacionalidades')
-sql2 = pd.DataFrame(run_query("SELECT nacionalidad, COUNT(id_alumno) FROM alumno GROUP BY nacionalidad"))
+sql2 = pd.DataFrame(run_query("SELECT nacionalidad, COUNT(id_alumno) as Tot FROM alumno GROUP BY nacionalidad ORDER BY Tot DESC"))
 sql2.columns = ['País','Cantidad']
 st.table(sql2)
 
@@ -62,7 +62,7 @@ st.bar_chart(data=sql2, x='País', y='Cantidad', use_container_width=True)
 
 
 st.subheader('Residencia')
-sql2 = pd.DataFrame(run_query("SELECT pais_residencia, COUNT(id_alumno) FROM alumno GROUP BY pais_residencia"))
+sql2 = pd.DataFrame(run_query("SELECT pais_residencia, COUNT(id_alumno) as Tot FROM alumno GROUP BY pais_residencia ORDER BY Tot DESC"))
 sql2.columns = ['País residencia','Cantidad']
 st.table(sql2)
 
