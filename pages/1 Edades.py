@@ -22,6 +22,16 @@ st.markdown(hide_table_row_index, unsafe_allow_html=True)
 # Display a static table
 
 
+header_style = '''
+    <style>
+        th{
+            background-color: yellow;
+        }
+    </style>
+'''
+st.markdown(header_style, unsafe_allow_html=True)
+
+
 st.header('Indicadores de tu grupo')
    
 
@@ -50,6 +60,6 @@ col3.metric(label="Mayor", value=int(sql11[0][1]), delta=None)
 
 
 st.subheader('Edades de los alumnos')
-sql111 = pd.DataFrame(run_query("SELECT nombre,apellido,edad FROM alumno"))
+sql111 = pd.DataFrame(run_query("SELECT nombre,apellido,edad FROM alumno ORDER BY edad"))
 sql111.columns = ['Nombre','Apellido','Edad']
 st.table(sql111)

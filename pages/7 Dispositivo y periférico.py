@@ -10,6 +10,27 @@ st.set_page_config(page_title='TA Tools - Dispositivos c/ periféricos',
                    menu_items=None)
 
 
+# CSS to inject contained in a string
+hide_table_row_index = """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
+# Inject CSS with Markdown
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+
+header_style = '''
+    <style>
+        th{
+            background-color: yellow;
+        }
+    </style>
+'''
+st.markdown(header_style, unsafe_allow_html=True)
+
+
 st.header('Indicadores de tu grupo')
     
 
@@ -31,6 +52,6 @@ def run_query(query):
 
 #- relacionar disp q usan con si tienen mic y cam o solo alguna de las dos
 st.subheader('Dispositivos y conexión')
-sql7 = (run_query("SELECT nombre,apellido,dispositivo,mic_y_cam FROM alumno"))
-st.markdown(f'En función del dispositivo, los alumnos se conectan usando:')
-st.dataframe(data=sql7, use_container_width=True)
+sql7 = pd.DataFrame(run_query("SELECT nombre,apellido,dispositivo,mic_y_cam FROM alumno"))
+sql7.columns = ['Nombre','Apellido','Dispositivo','Periférico']
+st.table(sql7)

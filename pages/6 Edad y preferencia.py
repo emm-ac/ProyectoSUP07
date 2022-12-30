@@ -10,6 +10,27 @@ st.set_page_config(page_title='TA Tools - Edad c/ Preferencia',
                    menu_items=None)
 
 
+# CSS to inject contained in a string
+hide_table_row_index = """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
+# Inject CSS with Markdown
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+
+header_style = '''
+    <style>
+        th{
+            background-color: yellow;
+        }
+    </style>
+'''
+st.markdown(header_style, unsafe_allow_html=True)
+
+
 st.header('Indicadores de tu grupo')
     
 
@@ -31,6 +52,6 @@ def run_query(query):
 
 #- relacionar la edad c que prefieren hacer en el sup
 st.subheader('Edad y preferencias')
-sql6 = (run_query("SELECT nombre,apellido,edad,gustos_sup FROM alumno ORDER BY edad"))
-st.markdown(f'En función de la edad, los alumnos prefieren:')
-st.dataframe(data=sql6, use_container_width=True)
+sql6 = pd.DataFrame(run_query("SELECT nombre,apellido,edad,gustos_sup FROM alumno ORDER BY edad"))
+sql6.columns = ['Nombre','Apellido','Edad','Preferencia']
+st.table(sql6)

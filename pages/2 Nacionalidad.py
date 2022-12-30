@@ -21,6 +21,16 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 
+header_style = '''
+    <style>
+        th{
+            background-color: yellow;
+        }
+    </style>
+'''
+st.markdown(header_style, unsafe_allow_html=True)
+
+
 st.header('Indicadores de tu grupo')
     
 
@@ -58,4 +68,4 @@ st.table(sql2)
 
 
 st.subheader(f'La distribución de países de residencia es la siguiente:')
-st.bar_chart(data=sql2, x='País', y='Cantidad', use_container_width=True)
+st.bar_chart(data=sql2, x='País residencia', y='Cantidad', use_container_width=True)
