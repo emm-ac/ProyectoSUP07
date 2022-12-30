@@ -42,12 +42,12 @@ def run_query(query):
 
 #- dispositivo q ussn para conectarse al sup (ver porcentaje de cada c resp al total)
 st.subheader('Dispositivos utilizados')
-sql3 = pd.DataFrame(run_query("SELECT nombre, apellido, Dispositivo_usado FROM Alumnos"))
+sql3 = pd.DataFrame(run_query("SELECT nombre, apellido, dispositivo FROM alumno"))
 sql3.columns = ['Alumno','Dispositivo']
 st.table(sql3)
 
 
 st.subheader(f'La distribución de dispositivos es la siguiente:')
-sql33 = pd.DataFrame(run_query("SELECT Dispositivo_usado, COUNT(Dispositivo_usado) FROM Alumnos GROUP BY Dispositivo_usado"))
+sql33 = pd.DataFrame(run_query("SELECT dispositivo, COUNT(dispositivo) FROM alumno GROUP BY dispositivo"))
 sql33.columns = ['Dispositivo','Cantidad']
 st.bar_chart(data=sql33, x='Dispositivo', y='Cantidad', use_container_width=True)

@@ -42,11 +42,11 @@ def run_query(query):
 
 #- cant de alumnos q poseen tanto mic como cam
 st.subheader('Uso de cámara y/o micrófono')
-sql4 = pd.DataFrame(run_query("SELECT Cam_Mic, COUNT(Cam_Mic) FROM Alumnos GROUP BY Cam_Mic"))
+sql4 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) FROM alumno GROUP BY mic_y_cam"))
 sql4.columns = ['Periférico','Cantidad']
 st.table(sql4)
 
 
 st.subheader(f'La distribución de periféricos es la siguiente:')
-sql44 = pd.DataFrame(run_query("SELECT Dispositivo_usado, COUNT(Dispositivo_usado) FROM Alumnos GROUP BY Dispositivo_usado"))
+sql44 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) FROM alumno GROUP BY mic_y_cam"))
 st.bar_chart(data=sql4, x='Periférico', y='Cantidad', use_container_width=True)

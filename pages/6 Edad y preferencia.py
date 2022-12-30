@@ -31,6 +31,6 @@ def run_query(query):
 
 #- relacionar la edad c que prefieren hacer en el sup
 st.subheader('Edad y preferencias')
-sql6 = (run_query("SELECT Nombre_apellido,Edad,Actividad_preferida FROM Alumnos ORDER BY Edad"))
+sql6 = (run_query("SELECT nombre,apellido,edad,gustos_sup FROM alumno ORDER BY edad"))
 st.markdown(f'En función de la edad, los alumnos prefieren:')
 st.dataframe(data=sql6, use_container_width=True)

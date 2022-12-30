@@ -42,7 +42,7 @@ def run_query(query):
 
 #- metrica con lo que preferirían hacer en el sup
 st.subheader('Temas más elegidos para el SUP')
-sql5 = pd.DataFrame(run_query("SELECT Actividad_preferida, COUNT(Actividad_preferida) FROM Alumnos GROUP BY Actividad_preferida"))
+sql5 = pd.DataFrame(run_query("SELECT gustos_sup, COUNT(gustos_sup) FROM alumno GROUP BY gustos_sup"))
 sql5.columns = ['Actividad','Cantidad']
 st.table(sql5)
 

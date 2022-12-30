@@ -31,6 +31,6 @@ def run_query(query):
 
 #- relacionar disp q usan con si tienen mic y cam o solo alguna de las dos
 st.subheader('Dispositivos y conexión')
-sql7 = (run_query("SELECT Nombre_apellido,Dispositivo_usado,Cam_Mic FROM Alumnos"))
+sql7 = (run_query("SELECT nombre,apellido,dispositivo,mic_y_cam FROM alumno"))
 st.markdown(f'En función del dispositivo, los alumnos se conectan usando:')
 st.dataframe(data=sql7, use_container_width=True)
