@@ -52,7 +52,7 @@ def run_query(query):
 
 #- cant de alumnos q poseen tanto mic como cam
 st.subheader('Uso de cámara y/o micrófono')
-sql4 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) FROM alumno GROUP BY mic_y_cam"))
+sql4 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) as Tot FROM alumno GROUP BY mic_y_cam ORDER BY Tot DESC"))
 sql4.columns = ['Periférico','Cantidad']
 st.table(sql4)
 
