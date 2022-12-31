@@ -2,6 +2,7 @@ import streamlit as st
 import psycopg2
 import sqlite3 as sql
 import pandas as pd
+import altair as alt
 
 st.set_page_config(page_title='TA Tools - Periféricos', 
                    page_icon='📊', 
@@ -58,16 +59,18 @@ st.table(sql4)
 
 
 st.subheader(f'La distribución de periféricos es la siguiente:')
-sql44 = pd.DataFrame(run_query("SELECT mic, COUNT(mic) FROM alumno GROUP BY mic"))
-st.bar_chart(data=sql4, x='Micrófono', y='Cantidad', use_container_width=True)
+graf = alt.Chart(sql4).mark_bar().encode(
+    x='Micrófono', y='Cantidad', color= 'Micrófono', tooltip=['Micrófono', 'Cantidad']).properties(width=450).interactive()
+st.altair_chart(graf, use_container_width=True)
 
 
 st.subheader('Uso de cámara y/o micrófono')
-sql4 = pd.DataFrame(run_query("SELECT cam, COUNT(cam) as Tot FROM alumno GROUP BY cam ORDER BY Tot DESC"))
-sql4.columns = ['Cámara','Cantidad']
-st.table(sql4)
+sql44 = pd.DataFrame(run_query("SELECT cam, COUNT(cam) as Tot FROM alumno GROUP BY cam ORDER BY Tot DESC"))
+sql44.columns = ['Cámara','Cantidad']
+st.table(sql44)
 
 
 st.subheader(f'La distribución de periféricos es la siguiente:')
-sql44 = pd.DataFrame(run_query("SELECT cam, COUNT(cam) FROM alumno GROUP BY cam"))
-st.bar_chart(data=sql4, x='Cámara', y='Cantidad', use_container_width=True)
+graf = alt.Chart(sql44).mark_bar().encode(
+    x='Cámara', y='Cantidad', color= 'Cámara', tooltip=['Cámara', 'Cantidad']).properties(width=450).interactive()
+st.altair_chart(graf, use_container_width=True)

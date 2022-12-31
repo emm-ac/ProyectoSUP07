@@ -2,6 +2,7 @@ import streamlit as st
 import psycopg2
 import sqlite3 as sql
 import pandas as pd
+import altair as alt
 
 st.set_page_config(page_title='TA Tools - Dipositivos', 
                    page_icon='📊', 
@@ -60,4 +61,6 @@ st.table(sql3)
 st.subheader(f'La distribución de dispositivos es la siguiente:')
 sql33 = pd.DataFrame(run_query("SELECT dispositivo, COUNT(dispositivo) FROM alumno GROUP BY dispositivo"))
 sql33.columns = ['Dispositivo','Cantidad']
-st.bar_chart(data=sql33, x='Dispositivo', y='Cantidad', use_container_width=True)
+graf = alt.Chart(sql33).mark_bar().encode(
+    x='Dispositivo', y='Cantidad', color= 'Dispositivo', tooltip=['Dispositivo', 'Cantidad']).properties(width=450).interactive()
+st.altair_chart(graf, use_container_width=True)

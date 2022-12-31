@@ -2,6 +2,7 @@ import streamlit as st
 import psycopg2
 import sqlite3 as sql
 import pandas as pd
+import altair as alt
 
 st.set_page_config(page_title='TA Tools - Nacionalidad', 
                    page_icon='📊', 
@@ -58,4 +59,6 @@ st.table(sql2)
 
 
 st.subheader(f'La distribución de nacionalidades es la siguiente:')
-st.bar_chart(data=sql2, x='País', y='Cantidad', use_container_width=True)
+graf = alt.Chart(sql2).mark_bar().encode(
+    x='País', y='Cantidad', color= 'País', tooltip=['País', 'Cantidad']).properties(width=450).interactive()
+st.altair_chart(graf, use_container_width=True)

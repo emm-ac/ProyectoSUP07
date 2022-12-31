@@ -2,6 +2,7 @@ import streamlit as st
 import psycopg2
 import sqlite3 as sql
 import pandas as pd
+import altair as alt
 
 st.set_page_config(page_title='TA Tools - Preferencias', 
                    page_icon='📊', 
@@ -52,10 +53,12 @@ def run_query(query):
 
 #- metrica con lo que preferirían hacer en el sup
 st.subheader('Temas más elegidos para el SUP')
-sql5 = pd.DataFrame(run_query("SELECT interes, COUNT(interes) FROM alumno GROUP BY interes"))
+sql5 = pd.DataFrame(run_query("SELECT interes, COUNT(interes) as tot FROM alumno GROUP BY interes ORDER BY tot DESC"))
 sql5.columns = ['Interés','Cantidad']
 st.table(sql5)
 
 
 st.subheader(f'La distribución de preferencias es la siguiente:')
-st.bar_chart(data=sql5, x='Interés', y='Cantidad', use_container_width=True)
+graf = alt.Chart(sql5).mark_bar().encode(
+    x='Interés', y='Cantidad', color= 'Interés', tooltip=['Interés', 'Cantidad']).properties(width=450).interactive()
+st.altair_chart(graf, use_container_width=True)
