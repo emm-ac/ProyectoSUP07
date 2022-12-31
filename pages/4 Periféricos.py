@@ -52,11 +52,22 @@ def run_query(query):
 
 #- cant de alumnos q poseen tanto mic como cam
 st.subheader('Uso de cámara y/o micrófono')
-sql4 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) as Tot FROM alumno GROUP BY mic_y_cam ORDER BY Tot DESC"))
-sql4.columns = ['Periférico','Cantidad']
+sql4 = pd.DataFrame(run_query("SELECT mic, COUNT(mic) as Tot FROM alumno GROUP BY mic ORDER BY Tot DESC"))
+sql4.columns = ['Micrófono','Cantidad']
 st.table(sql4)
 
 
 st.subheader(f'La distribución de periféricos es la siguiente:')
-sql44 = pd.DataFrame(run_query("SELECT mic_y_cam, COUNT(mic_y_cam) FROM alumno GROUP BY mic_y_cam"))
-st.bar_chart(data=sql4, x='Periférico', y='Cantidad', use_container_width=True)
+sql44 = pd.DataFrame(run_query("SELECT mic, COUNT(mic) FROM alumno GROUP BY mic"))
+st.bar_chart(data=sql4, x='Micrófono', y='Cantidad', use_container_width=True)
+
+
+st.subheader('Uso de cámara y/o micrófono')
+sql4 = pd.DataFrame(run_query("SELECT cam, COUNT(cam) as Tot FROM alumno GROUP BY cam ORDER BY Tot DESC"))
+sql4.columns = ['Cámara','Cantidad']
+st.table(sql4)
+
+
+st.subheader(f'La distribución de periféricos es la siguiente:')
+sql44 = pd.DataFrame(run_query("SELECT cam, COUNT(cam) FROM alumno GROUP BY cam"))
+st.bar_chart(data=sql4, x='Cámara', y='Cantidad', use_container_width=True)

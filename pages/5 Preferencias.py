@@ -52,10 +52,10 @@ def run_query(query):
 
 #- metrica con lo que preferirían hacer en el sup
 st.subheader('Temas más elegidos para el SUP')
-sql5 = pd.DataFrame(run_query("SELECT gustos_sup, COUNT(gustos_sup) FROM alumno GROUP BY gustos_sup"))
-sql5.columns = ['Actividad','Cantidad']
+sql5 = pd.DataFrame(run_query("SELECT interes, COUNT(interes) FROM alumno GROUP BY interes"))
+sql5.columns = ['Interés','Cantidad']
 st.table(sql5)
 
 
 st.subheader(f'La distribución de preferencias es la siguiente:')
-st.bar_chart(data=sql5, x='Actividad', y='Cantidad', use_container_width=True)
+st.bar_chart(data=sql5, x='Interés', y='Cantidad', use_container_width=True)

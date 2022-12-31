@@ -52,6 +52,6 @@ def run_query(query):
 
 #- relacionar la edad c que prefieren hacer en el sup
 st.subheader('Edad y preferencias')
-sql6 = pd.DataFrame(run_query("SELECT nombre,apellido,edad,gustos_sup FROM alumno ORDER BY edad"))
-sql6.columns = ['Nombre','Apellido','Edad','Preferencia']
+sql6 = pd.DataFrame(run_query("SELECT nombre,apellido,edad,interes FROM alumno ORDER BY edad"))
+sql6.columns = ['Nombre','Apellido','Edad','Interés']
 st.table(sql6)

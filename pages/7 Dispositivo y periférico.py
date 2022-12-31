@@ -52,6 +52,6 @@ def run_query(query):
 
 #- relacionar disp q usan con si tienen mic y cam o solo alguna de las dos
 st.subheader('Dispositivos y conexión')
-sql7 = pd.DataFrame(run_query("SELECT nombre,apellido,dispositivo,mic_y_cam FROM alumno"))
-sql7.columns = ['Nombre','Apellido','Dispositivo','Periférico']
+sql7 = pd.DataFrame(run_query("SELECT nombre,apellido,dispositivo,mic,cam FROM alumno"))
+sql7.columns = ['Nombre','Apellido','Micrófono','Cámara','Periférico']
 st.table(sql7)
