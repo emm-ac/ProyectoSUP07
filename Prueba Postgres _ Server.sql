@@ -1,15 +1,15 @@
-insert into "Alumno" values(0,'Emmanuel','Corral',35,01,True,True,'Argentina','Juegos');
-insert into "Alumno" values(1,'Melina','Griffo',28,01,False,True,'Argentina','Charlar');
-insert into "Alumno" values(2,'Ronal','Cabrera',27,01,True,False,'Argentina','Juegos');
-insert into "Alumno" values(3,'Emmanuel','Fernandez',29,01,False,False,'Uruguay','Código');
-insert into "Alumno" values(4,'Luciano','Asencio',31,01,True,False,'Chile','Juegos');
-insert into "Alumno" values(5,'Matias','Martínez',26,01,True,True,'Chile','Charlar');
-insert into "Alumno" values(6,'Valentín','Fogliatti',37,01,False,True,'Argentina','Juegos');
-insert into "Alumno" values(7,'Leonel','Balleis',30,01,False,False,'Argentina','Charlar');
-insert into "Alumno" values(8,'Maciela','Ortiz',31,01,True,False,'Argentina','Código');
-insert into "Alumno" values(9,'Julio','Postigo',27,01,False,True,'Uruguay','Juegos');
-insert into "Alumno" values(10,'Matías','Saez',25,01,False,True,'Chile','Dudas Henry');
-insert into "Alumno" values(11,'Nicolás','Mulet',26,01,True,False,'Chile','Juegos');
+insert into alumno values(0,'Emmanuel','Corral',35,'mail@mail.com',01,True,True,'Notebook','Argentina','Juegos');
+insert into alumno values(1,'Melina','Griffo',28,'mail@mail.com',01,False,True,'Celular','Argentina','Charlar');
+insert into alumno values(2,'Ronal','Cabrera',27,'mail@mail.com',01,True,False,'Notebook','Argentina','Juegos');
+insert into alumno values(3,'Emmanuel','Fernandez',29,'mail@mail.com',01,False,False,'PC','Uruguay','Código');
+insert into alumno values(4,'Luciano','Asencio',31,'mail@mail.com',01,True,False,'PC','Chile','Juegos');
+insert into alumno values(5,'Matias','Martínez',26,'mail@mail.com',01,True,True,'Celular','Chile','Charlar');
+insert into alumno values(6,'Valentín','Fogliatti',37,'mail@mail.com',01,False,True,'Notebook','Argentina','Juegos');
+insert into alumno values(7,'Leonel','Balleis',30,'mail@mail.com',01,False,False,'Celular','Argentina','Charlar');
+insert into alumno values(8,'Maciela','Ortiz',31,'mail@mail.com',01,True,False,'PC','Argentina','Código');
+insert into alumno values(9,'Julio','Postigo',27,'mail@mail.com',01,False,True,'Celular','Uruguay','Juegos');
+insert into alumno values(10,'Matías','Saez',25,'mail@mail.com',01,False,True,'Notebook','Chile','Dudas Henry');
+insert into alumno values(11,'Nicolás','Mulet',26,'mail@mail.com',01,True,False,'Celular','Chile','Juegos');
 
 delete from "Alumno";
 
