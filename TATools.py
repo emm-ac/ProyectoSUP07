@@ -17,7 +17,7 @@ st.set_page_config(page_title='Inicio',
 
 st.title('TA Tools :rocket:')
 
-st.header('Esta app proporciona herramientas e información útil para TAs.')
+st.header('Esta app proporciona herramientas e información útil para TAs')
 
 st.markdown('En el menú a tu izquierda puedes acceder a distintas métricas de tu grupo:')
 
